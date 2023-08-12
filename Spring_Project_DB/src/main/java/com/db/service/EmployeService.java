@@ -1,5 +1,10 @@
 package com.db.service;
 
-public class EmployeService {
+import org.springframework.stereotype.Service;
+
+import com.db.model.Employee;
+
+public interface EmployeService {
+	public Employee saveEmployee(Employee emp);
 
 }
