@@ -23,7 +23,4 @@ public class EmployeeControler {
 		log.info("saveEmp Api called");
 		return emService.saveEmployee(emp);
 	}
-	
-	
-
 }
