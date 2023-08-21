@@ -1,0 +1,4 @@
+2023-08-21T16:47:48.117+05:30  INFO 14424 --- [restartedMain] com.db.SpringProjectDbAbhayApplication   : Starting SpringProjectDbAbhayApplication using Java 17.0.6 with PID 14424 (C:\Users\DELL\Documents\workspace-spring-tool-suite-4-4.18.0.RELEASE\Spring_Project_DB_Abhay\target\classes started by DELL in C:\Users\DELL\Documents\workspace-spring-tool-suite-4-4.18.0.RELEASE\Spring_Project_DB_Abhay)
+2023-08-21T16:47:48.124+05:30  INFO 14424 --- [restartedMain] com.db.SpringProjectDbAbhayApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-08-21T16:47:48.198+05:30  INFO 14424 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-21T16:47:48.199+05:30  INFO 14424 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
