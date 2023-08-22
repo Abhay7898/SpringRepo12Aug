@@ -1,5 +1,7 @@
 package com.db.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,15 +27,30 @@ public class EmployeeServiceImpl implements EmployeService {
 
 	@Override
 	public Employee getEmployeeById(Integer id) {
-		Employee emp = emRepo.getReferenceById(id);
+		Employee emp = emRepo.getById(id);
 		log.info(emp.toString());
 		return emp;
 	}
 	
 	@Override
-	public void deletEmployeeById(Integer id) {
-		System.out.println("Data Delet");
-		emRepo.deleteById(id);
+	public boolean deletEmployeeById(Integer id) {
+		try {
+			emRepo.deleteById(id);
+		}catch (Exception e) {
+			log.error(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public List<Employee> getEmployeeByName(String name) {
+		return emRepo.findByFirstName(name);
+	}
+
+	@Override
+	public List<Employee> getEmployeeByNameAndId(Integer id, String name) {
+		return emRepo.findByIdAndFirstName(id, name);
 	}
 
 
