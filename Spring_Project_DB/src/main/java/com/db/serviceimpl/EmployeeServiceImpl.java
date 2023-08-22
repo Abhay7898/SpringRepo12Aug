@@ -29,5 +29,13 @@ public class EmployeeServiceImpl implements EmployeService {
 		log.info(emp.toString());
 		return emp;
 	}
+	
+	@Override
+	public void deletEmployeeById(Integer id) {
+		System.out.println("Data Delet");
+		emRepo.deleteById(id);
+	}
+
+
 
 }
