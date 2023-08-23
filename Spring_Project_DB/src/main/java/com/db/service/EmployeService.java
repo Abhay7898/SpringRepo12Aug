@@ -10,6 +10,7 @@ public interface EmployeService {
 	public boolean deletEmployeeById(Integer id);
 	public List<Employee> getEmployeeByName(String name);
 	public List<Employee> getEmployeeByNameAndId(Integer id, String name);
+	public boolean updateEmployee(Employee emp);
 
 
 }
