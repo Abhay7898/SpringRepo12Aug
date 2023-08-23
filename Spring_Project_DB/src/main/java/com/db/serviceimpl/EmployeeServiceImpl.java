@@ -27,16 +27,22 @@ public class EmployeeServiceImpl implements EmployeService {
 
 	@Override
 	public Employee getEmployeeById(Integer id) {
-		Employee emp = emRepo.getById(id);
-		log.info(emp.toString());
+		Employee emp = null;
+		try {
+			emp = emRepo.getReferenceById(id);
+			log.info(emp.toString());
+		} catch (Exception e) {
+			log.error("Data Not found");
+			emp = null;
+		}
 		return emp;
 	}
-	
+
 	@Override
 	public boolean deletEmployeeById(Integer id) {
 		try {
 			emRepo.deleteById(id);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			log.error(e.getMessage());
 			return false;
 		}
@@ -52,7 +58,5 @@ public class EmployeeServiceImpl implements EmployeService {
 	public List<Employee> getEmployeeByNameAndId(Integer id, String name) {
 		return emRepo.findByIdAndFirstName(id, name);
 	}
-
-
 
 }
