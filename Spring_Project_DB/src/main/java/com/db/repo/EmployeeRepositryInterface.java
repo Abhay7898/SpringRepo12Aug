@@ -3,7 +3,6 @@ package com.db.repo;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.db.model.Employee;
@@ -14,8 +13,5 @@ public interface EmployeeRepositryInterface extends JpaRepository<Employee, Inte
 	List<Employee> findByFirstName(String name);
 
 	List<Employee> findByIdAndFirstName(Integer id,String name);
-	
-	@Query(value = "select * from id ")
-	List<Employee> findBy(Integer id, String lastName);
 	
 }

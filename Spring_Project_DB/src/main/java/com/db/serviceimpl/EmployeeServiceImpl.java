@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.db.exception.MyCustomException;
 import com.db.model.Employee;
 import com.db.repo.EmployeeRepositryInterface;
 import com.db.service.EmployeService;
@@ -35,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeService {
 			log.info(emp.toString());
 		} catch (Exception e) {
 			log.error("Data Not found");
-			emp = null;
+			throw new MyCustomException();
 		}
 		return emp;
 	}

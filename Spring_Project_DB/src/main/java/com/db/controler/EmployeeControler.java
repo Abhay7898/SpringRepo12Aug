@@ -26,8 +26,8 @@ import lombok.extern.slf4j.Slf4j;
 @RestController("/qa/")
 public class EmployeeControler {
 
-	@Value("${spring.datasource.url}")
-	String serverName;
+	@Value("${spring.jpa.properties.hibernate.dialect}")
+	String userIdMsg;
 
 	@Autowired
 	public EmployeService emService;
@@ -43,20 +43,12 @@ public class EmployeeControler {
 	public ResponseEntity<?> getEmployeeById(@PathVariable Integer id) {
 		log.info("This is Id: " + id);
 
-		if (serverName.equals("Dev")) {
-
 			Employee e = emService.getEmployeeById(id);
 			if (e == null) {
-				return new ResponseEntity<>(Utility.USER_ID_NOT_FOUND, HttpStatus.NOT_FOUND);
+				return new ResponseEntity<>(userIdMsg, HttpStatus.NOT_FOUND);
 			} else {
 				return new ResponseEntity<>(e, HttpStatus.FOUND);
 			}
-		} else if (serverName.equals("QA")) {
-			log.info("QA setup");
-			return new ResponseEntity<>("", HttpStatus.FOUND);
-		}
-		return new ResponseEntity<>("", HttpStatus.FOUND);
-
 	}
 
 	@GetMapping(path = "getEmpName/{name}")
